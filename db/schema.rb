@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20180118223048) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "vehicle_visits", force: :cascade do |t|
     t.string   "vin"
     t.datetime "created_at", null: false
