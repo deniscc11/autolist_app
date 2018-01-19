@@ -14,3 +14,20 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+var ready;
+ready = function() {
+
+  $(document).on('submit', 'form', function(){
+    $(this).find('input, textarea, select').each(function(_, inp) {
+      if ($(inp).val() === '' || $(inp).val() === null){
+        inp.disabled = true;
+      }
+    });
+  })
+
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

@@ -6,7 +6,7 @@
         <div class="card search-card mt-3 mb-5">
           <div class="card-body">
             <h5 class="card-title">Search vehicles for sale</h5>
-            <%= form_tag('/searches/results', method: :get) do -%>
+            <%= form_tag('/searches/results', method: :get, enforce_utf8:false) do -%>
               <div class="form-row mt-4">
                 <div class="form-group col-sm-6">
                   <%= number_field_tag :price_min, nil, min: 0, placeholder: 'Mix Price', class:'form-control' %>
