@@ -1,0 +1,26 @@
+@import "bootstrap";
+@import "components/cards";
+
+.search-container{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url("/assets/bg1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &:before {
+    -webkit-box-shadow: inset 0px 10px 15rem 50px rgba(0, 0, 0, 0.7);
+    box-shadow: inset 0px 10px 15rem 50px rgba(0, 0, 0, 0.7);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+  }
+}
+
+.pagination {
+   justify-content: center;
+}

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-lg-12">
+      <h1>Search Results</h1>
+      <%= link_to 'Search again!', searches_path(), class:"btn btn-dark mt-3 mb-3" %>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <% @vehicles.each do |vehicle| %>
+      <div class="col-lg-4">
+        <div class="card mt-4">
+          <img class="card-img-top" src="<%= vehicle.primary_photo_url %>" alt="Card image cap">
+          <div class="bg-warning p-3">
+            Viewed <%= pluralize(@vehicles_visits[vehicle.vin] || 0, "time") %>  in the last hour.
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= vehicle.make %> <%= vehicle.model %></h5>
+            <h6 class="card-subtitle"><%= vehicle.year %></h6>
+            <p class="card-text">
+              Price: <%= vehicle.price.humanize %> <br/>
+              Mileage: <%= vehicle.mileage %> <br/>
+              City: <%= vehicle.city %>, <%= vehicle.state %> <br/>
+            </p>
+            <%= link_to vehicle_path(vehicle.vin), class: "btn btn-primary" do %>
+              Details
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <% if @vehicles.count <= 0 %>
+      <div class="col-lg-12">
+        <h5 class="text-muted">No vehicules found</h5>
+      </div>
+    <% end %>
+  </div>
+  <div class="row mt-5">
+    <div class="col-lg-12">
+      <%= render 'pagination', pagination_info: @pagination_info %>
+    </div>
+  </div>
+</div>

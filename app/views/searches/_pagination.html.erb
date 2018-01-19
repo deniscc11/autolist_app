@@ -1,0 +1,19 @@
+<% if pagination_info[:total_pages] > 0 %>
+  <nav>
+    <ul class="pagination">
+      <li class="page-item <%= 'disabled' if pagination_info[:current_page] <= 1 %>">
+        <%= link_to "Previous", url_for(action: 'results', page: pagination_info[:current_page] - 1, price_min: params[:price_min], price_max: params[:price_max]), class: "page-link" %>
+      </li>
+      <% pagination_info[:pages].each do |p| %>
+        <% if p > 0 && p <= pagination_info[:total_pages] %>
+          <li class="page-item <%= 'active' if p == pagination_info[:current_page] %>">
+            <%= link_to p, url_for(action: 'results', page: p, price_min: params[:price_min], price_max: params[:price_max]), class: "page-link" %>
+          </li>
+        <% end %>
+      <% end %>
+      <li class="page-item <%= 'disabled' if pagination_info[:current_page] >= pagination_info[:total_pages] %>">
+        <%= link_to "Next", url_for(action: 'results', page: pagination_info[:current_page] + 1, price_min: params[:price_min], price_max: params[:price_max]), class: "page-link" %>
+      </li>
+    </ul>
+  </nav>
+<% end %>
