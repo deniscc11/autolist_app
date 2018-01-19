@@ -37,8 +37,8 @@ The method called "set_pagination_info", it returns all the values needed to cre
 Those values are used in a partial file (searches/_pagination.html.erb) to generate the pagination dinamically
 
 
-## Caching Vehicules:
-The results from the api response are cached and converted into object to be used in the vehicle details page, to cache this information I created the "cache_service.rb" that basically stores the vehicle data using a key generated with the "VIN" value, also there is another method called "get_data" to retrieve the desired vehicule
+## Caching Vehicles:
+The results from the api response are cached and converted into object to be used in the vehicle details page, to cache this information I created the "cache_service.rb" that basically stores the vehicle data using a key generated with the "VIN" value, also there is another method called "get_data" to retrieve the desired vehicle
 based on the vin code sent
 
 ## Vehicle Visit:

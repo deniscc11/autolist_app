@@ -16,7 +16,7 @@ class SearchesController < ApplicationController
     def search_vehicles
       vehicles_api_service = VehiclesApiService.new(search_params)
       @vehicles = vehicles_api_service.search
-      @pagination_info = vehicles_api_service.pagination_info
+      @total_count = vehicles_api_service.total_count
       get_visits
     end
 
