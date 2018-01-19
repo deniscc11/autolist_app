@@ -42,7 +42,14 @@ The results from the api response are cached and converted into object to be use
 based on the vin code sent
 
 ## Vehicle Visit:
-Each time a user visits the details page the application automatically creates a record using the VIN code and the current datetime, this information is stored using the VehicleVisit.rb model and helps us to obtain the information of the views made in the last hour
+Each time a user visits the details page the application automatically creates a record using the VIN code and the current datetime, this information is stored using the VehicleVisit.rb model and helps us to obtain the information of the views made in the last hour  
+
+###Remove old visits(views)
+this task will eliminate all visits that are more than one hour old
+```
+rake vehicles:remove_old_visits
+```
+
 
 ## Live Preview
 [https://pure-eyrie-25388.herokuapp.com/]
