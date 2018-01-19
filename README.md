@@ -1,7 +1,7 @@
 # AUTOLIST TEST APP
 
 ## Versions
-Ruby version: ruby 2.3.1p112__
+Ruby version: ruby 2.3.1p112 __
 Rails version: rails-5.0.6
 
 List of gems used in this project:
