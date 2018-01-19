@@ -30,26 +30,19 @@ rake db:migrate
 rails s
 ```
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## API:
+There is a service called "vehicles_api_service.rb" in charge of making the connection to the api, this service is initialized with the values of the search (page, price_max and price_min). Inside this file there is a search method that make an API call, using the HTTParty gem, to get the vehicles information  
 
-Things you may want to cover:
+The method called "set_pagination_info", it returns all the values needed to create the pagination such as: current_page, total_count, total_pages, pages.
+Those values are used in a partial file (searches/_pagination.html.erb) to generate the pagination dinamically
 
-* Ruby version
 
-* System dependencies
+## Caching Vehicules:
+The results from the api response are cached and converted into object to be used in the vehicle details page, to cache this information I created the "cache_service.rb" that basically stores the vehicle data using a key generated with the "VIN" value, also there is another method called "get_data" to retrieve the desired vehicule
+based on the vin code sent
 
-* Configuration
+## Vehicle Visit:
+Each time a user visits the details page the application automatically creates a record using the VIN code and the current datetime, this information is stored using the VehicleVisit.rb model and helps us to obtain the information of the views made in the last hour
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# autolist_app
+## Live Preview
+[https://pure-eyrie-25388.herokuapp.com/]

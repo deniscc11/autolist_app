@@ -23,6 +23,7 @@ class VehiclesApiService
       @pagination_info[:current_page] = @options[:query][:page].to_i
       @pagination_info[:total_count] = @api_response["total_count"]
       @pagination_info[:total_pages] = (@api_response["total_count"] / 20.0).ceil
+      #it generates a range of the last 3 pages and next 3 pages
       @pagination_info[:pages] =  ((@options[:query][:page].to_i - 3)..(@options[:query][:page].to_i + 3))
     end
 
